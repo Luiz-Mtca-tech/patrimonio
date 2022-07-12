@@ -4,6 +4,7 @@ services:
         mysql:
                 build:
                         context: ./mysql
+                command: --default-authentication-plugin=mysql_native_password
                 ports: 
                         - "3306:3306"
                 environment:
@@ -13,7 +14,7 @@ services:
                         MYSQL_PASSWORD: 123
                 container_name: sql-server-pat
         phpmyadmin:
-                image: phpmyadmin
+                image: adminer:latest
                 ports: 
                         - "8080:8080"
                 container_name: phpmyadmin-pat
@@ -24,6 +25,8 @@ services:
                         context: .
                 ports:
                         - "80:80"
+                        - "8000:8080"
+                        - "443:443"
                 volumes:
                         - ./www/:/var/www/html
                 container_name: patrimonio-server

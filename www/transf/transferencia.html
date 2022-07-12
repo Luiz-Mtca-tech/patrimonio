@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tranferencia.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/buttons.css">
+    <link rel="stylesheet" href="../css/inputs.css">
+    <link rel="stylesheet" href="../css/text.css">
+    <title>Tranferencia</title>
+</head>
+<body>
+<header>
+    <nav>
+        <div id="left">
+            <h1 class="menu-title">Sistcon</h1>
+            <!--<img class="header-img" src="images/logoipa.jpg" alt="ipas's icon">
+            <img class="header-main-img" src="images/logotipo.jpg" alt="sistcon's icon">-->
+            <!--<img class="header-img" src="images/foto_usu3.jpg" alt="user's photo">-->
+            </div>
+        <div class="center" id="header-text-area">
+            <p><strong>Unidade:</strong> 02-ipa-int-previdencia-Angélica -
+            <strong>Usuários:</strong> Paulo de Oliveira</p>
+            <h1>Cadastro de Patrimonio</h1>
+        </div>
+        <div id="right">
+            <a class="button-menu-back" href="../table/table.html">Voltar</a>
+        </div>
+    </nav>
+</header>
+<main>
+    <section>
+        <h1 class="h1-search">Tranferencia de Patrimonio número: 0000001</h1>
+        <article>
+            <img src="../images/logoipa.jpg" alt="foto do objeto">
+            <p>
+                00001- Ar-condicionado
+            </p>
+            <p>
+                01-IPA
+            </p>
+            <p>
+                004- Sala de Recepção
+            </p>
+        </article>
+    </section>
+    <hr>
+    <form action="">
+        <label for="setor">Escolha um Novo Setor: </label>
+        <select class="input-text" name="setor" id="setor">
+            <option value="1">01-IPA</option>
+        </select>
+
+        <label for="local">Escolha um novo Local: </label>
+        <select class="input-text" name="local" id="local">
+            <option value="01">01- Gabinete do Presidente</option>
+        </select>
+
+        <label for="date">Data de Trasferência</label>
+        <div class="input-text" id="date">
+            <input class="hidden-input-text" type="date">
+        </div>
+        <div class="textarea-div">
+            <!-- cols="40" rows="10" -->
+            <textarea class="textarea-input" name="" id=""></textarea>
+        </div>
+
+        <div class="submit">
+            <input class="button1" type="submit" name="" id="" value="Enviar">
+        </div>
+    </form>
+</main>
+</body>
+</html>

@@ -1,0 +1,88 @@
+.button-menu {
+    background-color: white;
+    border: 1px solid #0B0B3B;
+    color: #0B0B3B;
+    text-decoration: none;
+    font-family: 'Source Sans Pro';
+    padding: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bolder;
+}
+a {
+    font-family: Source Sans Pro;
+}
+
+.button-menu:hover {
+    background: none;
+    color: white;
+    text-decoration: none;
+    font-family: 'Source Sans Pro';
+    border-color: white;
+}
+.button-menu-back {
+    background-color: white;
+    border: 1px solid #0B0B3B;
+    color: #0B0B3B;
+    padding: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bolder;
+    text-decoration: none;
+}
+.button-menu-back:hover {
+    background-color: #FF3C00;
+    color: white;
+    border: none;
+}
+
+.button1{
+    cursor: pointer;
+    font-size: 15pt;
+    font-family: Source Sans Pro;
+    background: linear-gradient(75deg, #03A63C, #04D939);
+    border-radius: 5px;
+    border: 0px solid white;
+    color: white;
+    /*width: 40%;*/
+    height: 40px;
+}
+
+.button2 {
+    cursor: pointer;
+    font-size: 15pt;
+    font-family: Source Sans Pro;
+    background: linear-gradient(75deg, red, #FF3C00);
+    border-radius: 5px;
+    border: 0px solid white;
+    color: white;
+    /*width: 40%;*/
+    height: 40px;
+}
+.button3 {
+    cursor: pointer;
+    font-size: 15pt;
+    font-family: Source Sans Pro;
+    background: none;
+    border-radius: 5px;
+    border: 0px solid #4D508C;
+    color: #4D508C;
+    /*width: 40%;*/
+    height: 40px;
+}
+.button1:hover {
+    transform: scale(1.05);
+}
+.button2:hover {
+    transform: scale(1.05);
+}
+.button3:hover {
+   background-color: #4D508C;
+   color: #F2F2F2; 
+}
+
+.submit {
+    display: block;
+    width: fit-content;
+    margin: auto;
+}

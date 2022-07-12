@@ -1,0 +1,20 @@
+.input-form-main:focus {
+    box-shadow: 0px 0px 7px 0.5px #70BDFF;
+    outline: none;
+}
+.input-text {
+    border: 1px solid white;
+    border-radius: 30px;
+    background-color: #E0E0E0; /*#E6E6E6;*/
+    display: inline-block;
+    padding: 6px;
+}
+.input-text:focus {
+    box-shadow: 0px 0px 7px 0.5px #70BDFF;
+    outline: none;
+}
+.hidden-input-text {
+    background-color: #E0E0E0;
+    border: none;
+    outline: none;
+}

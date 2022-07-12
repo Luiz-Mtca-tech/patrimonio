@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="../css/buttons.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/inputs.css">
+    <link rel="stylesheet" href="../css/text.css">
+    <script src="https://kit.fontawesome.com/9eddd44c51.js" crossorigin="anonymous"></script>
+    <title>Cadastro</title>
+</head>
+<body>
+    <header>
+        <nav>
+                <div id="left">
+                    <h1 class="menu-title">Sistcon</h1>
+                    <!--<img class="header-img" src="images/logoipa.jpg" alt="ipas's icon">
+                    <img class="header-main-img" src="images/logotipo.jpg" alt="sistcon's icon">-->
+                    <!--<img class="header-img" src="images/foto_usu3.jpg" alt="user's photo">-->
+                    </div>
+                <div class="center" id="header-text-area">
+                    <p><strong>Unidade:</strong> 02-ipa-int-previdencia-Angélica -
+                    <strong>Usuários:</strong> Paulo de Oliveira</p>
+                    <h1>Cadastro de Patrimonio</h1>
+                </div>
+                <div id="right">
+                    <a class="button-menu-back" href="../table/table.html">Voltar</a>
+                </div>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <article id="title-box">
+                <h1 class="h1-search">Inclusão de Patriminio</h1>
+            </article>
+            <form action="">
+
+                <section class="form-session">
+                    <span class="input-text">
+                        <!--<i class="fa-solid fa-magnifying-glass icon"></i>-->
+                        <input class="hidden-input-text" type="text" placeholder="número">
+                    </span>
+
+                    <span class="input-text">
+                        <input class="hidden-input-text" type="text" placeholder="Descrição">
+                    </span>
+
+                    <label for="tipo">Tipo:</label>
+                    <select class="input-text" id="tipo">
+                        <option value="2">2- Equipamentos de Informática</option>
+                    </select>
+
+                </section class="form-session">
+
+                <section class="form-session">
+
+                    <label for="">Setor:</label>
+                    <select class="input-text" id="tipo">
+                        <option value="1">01-IPA</option>
+                    </select>
+
+                    <label for="">Local:</label>
+                    <select class="input-text" id="tipo">
+                        <option value="1">001 Gabinete do Presidente</option>
+                    </select>
+
+                    <label for="">Situação: </label>
+                    <select class="input-text" id="tipo">
+                        <option value="1">Ótimo</option>
+                    </select>
+                </section>
+
+                <section class="form-session">
+                    <label for="">Data de Aquisição</label>
+                    <span class="input-text">
+                        <input class="hidden-input-text" type="date">
+                    </span>
+                    
+                    <label for="">Credor:</label>
+                    <select class="input-text" id="tipo">
+                        <option value="1">1-Abestecedora N Alvorada</option>
+                    </select>
+                    
+                </section>
+                <section class="form-session">
+                    <span class="input-text">
+                        <textarea class="hidden-input-text" cols="40" rows="10">
+                        </textarea>
+                    </span>
+                </section>
+                <span class="submit">
+                    <input class="button1" type="submit" value="Enviar">
+                </span>
+            </form>
+        </section>
+    </main>
+    <footer></footer>
+    <script>
+        document.querySelector("#back").onclick = function(){
+            window.location = "../table/table.html"
+        }
+    </script>
+</body>
+</html>

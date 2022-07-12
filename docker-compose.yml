@@ -1,0 +1,31 @@
+version: '3'
+
+services: 
+        mysql:
+                build:
+                        context: ./mysql
+                ports: 
+                        - "3306:3306"
+                environment:
+                        MYSQL_ROOT_PASSWORD: 031957
+                        MYSQL_DATA_BASE: patrimonio
+                        MYSQL_USER: luiz
+                        MYSQL_PASSWORD: 123
+                container_name: sql-server-pat
+        phpmyadmin:
+                image: phpmyadmin
+                ports: 
+                        - "8080:8080"
+                container_name: phpmyadmin-pat
+                links:
+                        - mysql
+        server:
+                build:
+                        context: .
+                ports:
+                        - "80:80"
+                volumes:
+                        - ./www/:/var/www/html
+                container_name: patrimonio-server
+                links:
+                        - mysql                

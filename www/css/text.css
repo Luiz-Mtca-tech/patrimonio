@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Mukta:wght@200;400&family=Overpass:wght@300;400;600;700&family=Patua+One&family=Roboto+Condensed:wght@300&family=Secular+One&family=Source+Sans+Pro:wght@200;300;400&display=swap');
+
+/* styles for some texts in the page */
+.h1-search {
+    color: #40403E;
+    margin: 0px;
+    text-align: center;
+    font-family: Source Sans Pro, Arial;
+}
+h1.menu-title {
+    color: #F2F2F2;
+    font-family: 'Overpass';
+    font-size: 3em;
+    text-align: center;
+/*     margin: 10% 0px 0px 0px;
+ */}
+.icon {
+    color: #40403E;
+    padding: 10px;
+}
+a {
+    color: #40403E;
+}
+.table-icon {
+    padding: 10px;
+    color: #4D508C;
+    font-size: 1.3em;
+}
+hr {
+    color: 40403E;
+    margin: 5px 15px;
+}

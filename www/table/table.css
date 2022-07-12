@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Mukta:wght@200;400&family=Overpass:wght@300;400;600;700&family=Patua+One&family=Roboto+Condensed:wght@300&family=Secular+One&family=Source+Sans+Pro:wght@200;300;400&display=swap');
+body {
+    margin: 0px;
+    /*background-color: #C1C2D9;*/
+    background-image: url('../images/background1.jpg');
+}
+
+
+/*search area configuration */
+section#search-area {
+    padding: 10px;
+}
+span#inputs-search-area {
+    height: 50px;
+}
+span#inputs-search-area > input {
+    margin: 0;
+    position: relative;
+    top: 16%;
+    left: 1%;
+    /*-ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);*/
+   
+
+}
+/* Other part in the page, here will be the configuration of the table */
+main {
+    width: 70%;
+    margin: 15px auto;
+    background-color: #F2F2F2;
+    border-radius: 10px;
+    opacity: 0.91;
+}
+
+@media (min-width: 701px){
+    nav {
+        display: flex;
+        flex-direction: row;
+        
+    }
+    div.center {
+        margin: 0px auto 0px auto;
+    }
+    div.left {
+        
+    }
+    table {
+        margin: auto;
+        width: 80%;
+        color: #40403E;
+        font-family: Kanit, Arial;
+        border-radius: 10px;
+        overflow-x: auto;
+
+    }
+    tr.table-row:hover {
+        background-color: #E0E0E0;
+        
+    }
+    .table-header {
+        background-color: #40403E;
+        color: #F2F2F2;
+        border-radius: 15px;
+
+    }
+    div#right {
+        height: fit-content;
+        margin: auto 0px;
+    }
+
+}
+@media (max-width: 700px){
+    main {
+        width: 100%;
+        margin: 0px;
+    }
+    nav {
+        display: flex;
+        flex-direction: column;
+        
+    }
+    table {
+        display: inline;
+        margin: auto;
+        color: #40403E;
+        font-family: Kanit, Arial;
+    }
+    tr.table-row:hover {
+        background-color: #E0E0E0;
+        
+    }
+    .table-header {
+        background-color: #40403E;
+        color: #F2F2F2;
+        border-radius: 15px;
+    }
+    /* td {
+        display: block;
+    } */
+    div#right {
+        /*margin: 0px 0px 0px 0px;*/
+    }
+}
+@media(max-width: 500px) {
+    span#search-input {
+        margin: 10px auto;
+        display: block;
+    }
+    span#submit-area {
+        display: block;
+        margin: auto;
+        width: fit-content;
+    }
+}
+
+
+/* styles for the buttons */
+section#actions-area {
+   display: inline;
+}
+div#add-back-area {
+    width: 50%;
+    margin: auto;
+}
+div#add-back-area > input{
+    margin-right: 7px;
+    margin-right: 7px;
+}

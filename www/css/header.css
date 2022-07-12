@@ -1,0 +1,67 @@
+/* All the styles applied to the header*/
+/* The configurations to the images and its divs and etc*/
+header {
+    /*background-color: #1F2373;*/
+    background: linear-gradient(0deg, #24297a, #1F2373);
+}
+
+/*controls*/
+ul.buttons-list {
+    width: 100%;
+}
+ul.buttons-list > li {
+    display: inline;
+    text-decoration: none;
+}
+
+.header-main-img {
+    /*width: 45%;*/
+    width: 80px;
+    /*height: 110px;*/
+    border-radius: 15px;
+}
+.header-img {
+    width: 80px;
+    height: 80px;
+    border: 0px solid none;
+    border-radius: 15px;
+}
+/* configuration to the information of the user and previdence */ 
+#header-text-area {
+    text-align: center;
+    color: #F2F2F2;
+    font-family: 'Overpass', Arial;
+    font-size: small;
+    padding: 0px;
+}
+@media (min-width: 701px){
+    nav {
+        display: flex;
+        flex-direction: row;
+    }
+    div#left {
+        height: fit-content;
+        margin: auto 0px auto 10px;
+    }
+    div.center {
+        margin: 0px auto 0px auto;
+    }
+    div#right {
+        height: fit-content;
+        margin: auto 10px auto 0px;
+    }
+}
+
+@media (max-width: 700px){
+    nav {
+        display: flex;
+        flex-direction: column;
+    }
+    div.center {
+        margin: auto;
+    }
+    div#right {
+        width: fit-content;
+        margin: 10px auto;
+    }
+}

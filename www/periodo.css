@@ -1,0 +1,48 @@
+
+body {
+    margin: 0px;
+    background-image: url(../images/background1.jpg);
+}
+main {
+/*     width: 40%;*/
+    margin: 10px auto;
+    background-color: #F2F2F2;
+    width: 40%;
+    margin: 15px auto;
+    border-radius: 10px;
+    padding: 10px;
+    opacity: 0.91;
+}
+
+.form-select {
+    width: fit-content;
+    margin: auto;
+}
+.submit {
+    display: block;
+    width: fit-content;
+    margin: auto;
+}
+.sp {
+    margin: 10px auto;
+}
+
+@media (min-width: 701px){
+    .sz-select {
+        width: 40%;
+    }
+   
+}
+
+@media(max-width: 700px){
+    main {
+        width: 100%;
+    }
+    nav {
+        display: flex;
+        flex-direction: column;
+    }
+    .sz-select {
+        width: auto;
+    }
+}

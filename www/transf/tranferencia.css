@@ -1,0 +1,85 @@
+
+body{
+    background-image: url(../images/background1.jpg);
+    margin: 0px;
+}
+
+main {
+    width: 60%;
+    margin: 10px auto;
+    background-color: #f2f2f2;;
+    border-radius: 10px;
+    opacity: 0.91;
+}
+form {
+    margin: 10px;
+    padding: 10px;
+}
+#form-main-area {
+    width: fit-content;
+    margin: auto;
+}
+#setor-input {
+    width: fit-content;
+    margin: auto;
+}
+section {
+    font-family: 'Overpass', Arial;
+    text-align: center;
+}
+.textarea-div {
+    width: 60%;
+    margin: auto;
+    padding: 10px;
+}
+.textarea-input {
+    width: 100%;
+    height: 100px;
+    resize: none;
+    margin: 10px auto;
+    border: 1px solid white;
+    border-radius: 30px;
+    background-color: #E0E0E0; /*#E6E6E6;*/
+    display: inline-block;
+    padding: 6px;
+}
+.textarea-input:focus {
+    box-shadow: 0px 0px 7px 0.5px #70BDFF;
+    outline: none;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+label {
+    font-family: Kanit, Arial;
+}
+
+@media (max-width: 1500px) and (min-width: 1200px){
+    
+}
+@media (max-width: 700px) {
+    main {
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        border-radius: 0px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    .textarea-div {
+        width: 100%;
+        margin: 0px;
+        padding: 10px 0px;
+    }
+
+    .textarea-input {
+        padding: 0px;
+    }
+
+}

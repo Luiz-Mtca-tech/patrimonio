@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../css/buttons.css">
     <link rel="stylesheet" href="../css/inputs.css">
     <link rel="stylesheet" href="../css/text.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <title>Patrimonio</title>
 </head>
@@ -39,14 +40,14 @@
                 <h1 class="h1-search">Escolha um Local</h1>
             </article>
         </section>
-        <form action="../table/table.html">
-            <select class="input-text sz-select sp" id="tipo" style="display: block;">
-                <option value="0">Nenhum</option>
-                <option value="1">01-IPA</option>
+        <form id="period" method="post" action="table/table.php">
+            <select class="input-text sz-select sp" id="local" name="location" style="display: block;">
+                <!-- <option value="0">Nenhum</option>
+                <option value="1">01-IPA</option> -->
             </select>
 
             <span class="submit sp">
-                <input class="button1" type="button" value="Enviar">
+                <input class="button1" type="submit" value="Enviar">
             </span>
         </form>
     </main>

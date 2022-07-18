@@ -11,7 +11,7 @@
  * contém as funções nescessárias para o CRUD
  */
 
-namespace Luiz\Patrimonio\db;
+namespace Patrimonio\WWW\db;
 use \PDO;
 
 class MysqlDataBase
@@ -239,8 +239,9 @@ class MysqlDataBase
 	/* Esta função é a mesma coisa que a função find, porém, esta retorna todos os registros
 	 * encontrados no banco de dados 
 	 */
-	public function findAll($table, string $condition, $fields = '*')
+	public function findAll($table, string $condition = "", $fields = '*')
 	{
+		$query = "SELECT ";
 		if (gettype($fields) == 'array') {
 			for ($i=0; $i < count($fields); $i++) { 
 				if ($i == count($fields) - 1) {

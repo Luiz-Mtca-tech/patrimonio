@@ -1,3 +1,29 @@
+<?
+require "../vendor/autoload.php";
+//importing the function to generate the table
+require "../php/generatetable.php";
+
+use Patrimonio\WWW\db\MysqlDataBase;
+
+session_start();
+
+$db = new MysqlDataBase("sistcon", "mysql", "root", "031957");
+
+//$campos = array('id', "pat_foto", "pat_seto", "pat_cod", "pat_desc");
+if($_SESSION["local"] == '0' || $_SESSION["local"] == 0) {
+    if (!empty(filter_input(INPUT_POST, "location", FILTER_SANITIZE_NUMBER_INT))){
+        $local = filter_input(INPUT_POST, "location", FILTER_SANITIZE_NUMBER_INT);
+        $_SESSION["local"] = $local;
+        $data = $db->findAll("patrimonio", "pat_loca = $local");
+
+    } else {
+        $data = $db->findAll("patrimonio");
+    }
+    
+} else {
+    $data = $db->findAll("patrimonio", "pat_loca = ".$_SESSION['local']);
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,6 +35,7 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/text.css">
     <link rel="stylesheet" href="../css/inputs.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/9eddd44c51.js" crossorigin="anonymous"></script>
     <title>Patrimonio</title>
 </head>
@@ -29,7 +56,7 @@
             <div id="right">
                 <a class="button-menu" href="../cadastro/cadastro_patrimonio.html">Adicionar</a>
                 <a class="button-menu" href="#">Listar</a>
-                <a class="button-menu-back" href="../periodo/index.html ">Voltar</a>
+                <a class="button-menu-back" href="../index.html ">Voltar</a>
                 <!-- <button id="adicionar"  class="button-menu">Adicionar</button>
                 <button  class="button-menu" >Listar</button>
                 <button id="voltar" class="button-menu-back">Voltar</button> -->
@@ -50,8 +77,9 @@
                 
             </article>
         </section>
-        <article style="overflow-x: auto;">
-            <table>
+        <article id="table-area" style="overflow-x: auto;">
+            <? generateTable($data)?>
+            <!-- <table>
                 <tr class="table-header">
                     <th>Id</th>
                     <th>Foto</th>
@@ -74,7 +102,7 @@
                     <td><a class="" href="#" title="Baixa"><i class="fa-solid fa-arrow-down-long table-icon"></i></a></td>
                     <td><a class="" href="#" title="Tranferência"><i class="fa-solid fa-arrow-right-arrow-left table-icon"></i></a></td>
                 </tr>
-            </table>
+            </table> -->
         </article>
     </main>
     <script src="../js/index.js"></script>

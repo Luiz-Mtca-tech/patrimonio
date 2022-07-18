@@ -4,7 +4,7 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Luiz\\Patrimonio\\": "www/php/classes/"
+            "Patrimonio\\WWW\\": "/home/luiz/docker/patrimonio/www/php/classes"
         }
     },
     "authors": [

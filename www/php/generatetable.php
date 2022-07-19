@@ -4,18 +4,32 @@
 * @date: 11/07/2022
 * Time: 16:06
 */
-/*ob_start();
 require "../vendor/autoload.php";
-ob_clean();
-use Patrimonio\WWW\db\MysqlDataBase;
 
-$location = filter_input(INPUT_POST, "location", FILTER_VALIDATE_INT);
-echo $location;
+use Patrimonio\WWW\db\MysqlDataBase;
 
 $db = new MysqlDataBase("sistcon", "mysql", "root", "031957");
 
-$data = $db->findAll("patrimonio", "WHERE pat_loca = $location");
-*/
+if (filter_input(INPUT_POST, "location", FILTER_SANITIZE_NUMBER_INT) != null){
+    $local = filter_input(INPUT_POST, "location", FILTER_SANITIZE_NUMBER_INT);
+    if($local == "0"){
+        $_SESSION["local"] = "0";
+        $data = $db->findAll('patrimonio');
+    } else {
+        $_SESSION["local"] = $local;
+        $data = $db->findAll("patrimonio", "pat_loca = $local");
+    }
+
+} else {
+    if($_SESSION["local"] == "0") {
+        $data = $db->findAll('patrimonio');
+    } else {
+        $local = $_SESSION["local"];
+        $data = $db->findAll("patrimonio", "pat_loca = $local");
+    }
+    
+}
+
 function generateTable($data){
     ?>
     <table>

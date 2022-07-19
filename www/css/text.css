@@ -30,3 +30,8 @@ hr {
     color: 40403E;
     margin: 5px 15px;
 }
+
+label {
+    font-family: 'Overpass', Arial;
+    color: #40403E;
+}

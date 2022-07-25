@@ -120,37 +120,30 @@ class MysqlDataBase
 	}
 
 	//cadastro de dados	
-	public function registerDatas(string $table, array $fields, array $datas)
+	public function registerDatas(string $table, array $data)// array $fields, array $datas)
 	{
 		$query = "INSERT INTO `".$table."` (";
 
-		for ($i=0; $i < count($fields); $i++) { 
-			if ($i == count($fields) - 1) {
-				$query .= "`".$fields[$i]."` ";
-
+		$keys = array_keys($data);
+		print_r($data);
+		$values = "";
+		for ($i = 0; $i < count($data); $i++){
+			echo "key: ".$keys[$i].", value: ".$data[$keys[$i]]."<br>";
+			
+			if ($i == count($data) - 1) {
+				$query .= "`".$keys[$i]."` ";
+				$values .= $data[$keys[$i]];
 			} else {
-				$query .= "`".$fields[$i]."`, ";
-
-			}
-		}
-
-		$query .= ") VALUES (";
-
-		for ($i=0; $i < count($datas); $i++) { 
-			if ($i == count($fields) - 1) {
-				$query .= "'".$datas[$i]."' ";
-
-			} else {
-				$query .= "'".$datas[$i]."', ";
+				$query .= "`".$keys[$i]."`, ";
+				$values .= $data[$keys[$i]].", ";
 
 			}
 			
 		}
 
-		$query .= ")";
-		//echo $query;
-		$sql = $this->pdo->prepare($query);
+		$query .= ") VALUES (".$values.")";
 		
+		$sql = $this->pdo->prepare($query);
 		if ($sql->execute()) {
 			return true;
 		} else {

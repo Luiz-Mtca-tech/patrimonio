@@ -36,20 +36,20 @@
             <article id="title-box">
                 <h1 class="h1-search">Inclusão de Patriminio</h1>
             </article>
-            <form action="">
+            <form action="../php/add_patrimonio.php" method="post">
 
                 <section class="form-session">
                     <span class="input-text">
                         <!--<i class="fa-solid fa-magnifying-glass icon"></i>-->
-                        <input class="hidden-input-text" type="text" placeholder="número">
+                        <input class="hidden-input-text" type="text" name="number" placeholder="número">
                     </span>
 
                     <span class="input-text">
-                        <input class="hidden-input-text" type="text" placeholder="Descrição">
+                        <input class="hidden-input-text" type="text" name="description" placeholder="Descrição">
                     </span>
 
                     <label for="tipo">Tipo:</label>
-                    <select class="input-text" id="tipo">
+                    <select class="input-text" id="tipo" name="type">
                         <option value="2">2- Equipamentos de Informática</option>
                     </select>
 
@@ -58,17 +58,17 @@
                 <section class="form-session">
 
                     <label for="">Setor:</label>
-                    <select class="input-text" id="tipo">
+                    <select class="input-text" id="tipo" name="sector">
                         <option value="1">01-IPA</option>
                     </select>
 
                     <label for="">Local:</label>
-                    <select class="input-text" id="tipo">
+                    <select class="input-text" id="tipo" name="local">
                         <option value="1">001 Gabinete do Presidente</option>
                     </select>
 
                     <label for="">Situação: </label>
-                    <select class="input-text" id="tipo">
+                    <select class="input-text" id="tipo" name="situacion">
                         <option value="1">Ótimo</option>
                     </select>
                 </section>
@@ -76,19 +76,41 @@
                 <section class="form-session">
                     <label for="">Data de Aquisição</label>
                     <span class="input-text">
-                        <input class="hidden-input-text" type="date">
+                        <input class="hidden-input-text" type="date" name="acquisition">
                     </span>
                     
                     <label for="">Credor:</label>
-                    <select class="input-text" id="tipo">
+                    <select class="input-text" id="tipo" name="credor">
                         <option value="1">1-Abestecedora N Alvorada</option>
                     </select>
                     
                 </section>
+                <label style="display: block; text-align: center;" for="caracteristica">Característica</label>
                 <section class="form-session">
                     <span class="input-text">
-                        <textarea class="hidden-input-text" cols="40" rows="10">
+                        <textarea class="hidden-input-text" name="feature" cols="40" rows="10">
                         </textarea>
+                    </span>
+                </section>
+                <section class="form-session">
+                    <span class="input-text">
+                        <input class="hidden-input-text" name="empenho" type="text" placeholder="Número de empenho:">
+                    </span>
+                    <span class="input-text">
+                        <input class="hidden-input-text" name="nota-fiscal" type="text" placeholder="Número de NF:">
+                    </span>
+                    <span class="input-text">
+                        <i></i>
+                        <input class="hidden-input-text" name="aqcuisicion-value" type="text" placeholder="Valor de Aquisição: 0,00">
+                    </span>
+                    <span class="input-text">
+                        <i></i>
+                        <input class="hidden-input-text" name="actual-value" type="text" placeholder="Valor Atual: 0,00">
+                    </span>
+                </section>
+                <section class="form-session">
+                    <span class="input-text">
+                        <input class="hidden-input-text" name="picture" type="text" placeholder="Foto:">
                     </span>
                 </section>
                 <span class="submit">
@@ -98,10 +120,5 @@
         </section>
     </main>
     <footer></footer>
-    <script>
-        document.querySelector("#back").onclick = function(){
-            window.location = "../table/table.html"
-        }
-    </script>
 </body>
 </html>

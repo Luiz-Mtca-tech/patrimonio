@@ -1,6 +1,7 @@
 <? 
 session_start();
 require "../php/generatetable.php";
+$_SESSION["unidade"] = "02";
 
 ?>
 <!DOCTYPE html>

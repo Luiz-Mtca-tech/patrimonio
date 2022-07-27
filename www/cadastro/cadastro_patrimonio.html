@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../css/inputs.css">
     <link rel="stylesheet" href="../css/text.css">
     <script src="https://kit.fontawesome.com/9eddd44c51.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>Cadastro</title>
 </head>
 <body>
@@ -41,16 +42,22 @@
                 <section class="form-session">
                     <span class="input-text">
                         <!--<i class="fa-solid fa-magnifying-glass icon"></i>-->
-                        <input class="hidden-input-text" type="text" name="number" placeholder="número">
+                        <input class="hidden-input-text" type="text" name="number" placeholder="número" maxlength="6">
                     </span>
 
                     <span class="input-text">
-                        <input class="hidden-input-text" type="text" name="description" placeholder="Descrição">
+                        <input class="hidden-input-text" type="text" name="description" placeholder="Descrição" maxlength="100">
                     </span>
 
                     <label for="tipo">Tipo:</label>
                     <select class="input-text" id="tipo" name="type">
-                        <option value="2">2- Equipamentos de Informática</option>
+                        <option value="2">2-Equipamentos  de Informática</option>
+                        <option value="3">3-Máquinas e Utensílios </option>
+                        <option value="4">4-Veículos</option>
+                        <option value="5">5-Implementos Agrícolas</option>
+                        <option value="6">6-Móveis de Escritórios</option>
+                        <option value="7">8-Terrenos</option>
+                        <option value="8">9-Edificações</option>
                     </select>
 
                 </section class="form-session">
@@ -58,19 +65,23 @@
                 <section class="form-session">
 
                     <label for="">Setor:</label>
-                    <select class="input-text" id="tipo" name="sector">
+                    <select class="input-text" id="sector" name="sector">
                         <option value="1">01-IPA</option>
                     </select>
 
                     <label for="">Local:</label>
-                    <select class="input-text" id="tipo" name="local">
-                        <option value="1">001 Gabinete do Presidente</option>
+                    <select class="input-text" id="local" name="local">
+                       
                     </select>
 
                     <label for="">Situação: </label>
                     <select class="input-text" id="tipo" name="situacion">
                         <option value="1">Ótimo</option>
+                        <option value="2">Bom</option>
+                        <option value="3">Regular</option>
+                        <option value="2">Péssimo</option>
                     </select>
+                        
                 </section>
 
                 <section class="form-session">
@@ -80,7 +91,7 @@
                     </span>
                     
                     <label for="">Credor:</label>
-                    <select class="input-text" id="tipo" name="credor">
+                    <select class="input-text" id="credor" name="credor">
                         <option value="1">1-Abestecedora N Alvorada</option>
                     </select>
                     
@@ -94,18 +105,18 @@
                 </section>
                 <section class="form-session">
                     <span class="input-text">
-                        <input class="hidden-input-text" name="empenho" type="text" placeholder="Número de empenho:">
+                        <input class="hidden-input-text" name="empenho" type="text" placeholder="Número de empenho:" maxlength="11">
                     </span>
                     <span class="input-text">
-                        <input class="hidden-input-text" name="nota-fiscal" type="text" placeholder="Número de NF:">
-                    </span>
-                    <span class="input-text">
-                        <i></i>
-                        <input class="hidden-input-text" name="aqcuisicion-value" type="text" placeholder="Valor de Aquisição: 0,00">
+                        <input class="hidden-input-text" name="nota-fiscal" type="text" placeholder="Número de NF:" maxlength="20">
                     </span>
                     <span class="input-text">
                         <i></i>
-                        <input class="hidden-input-text" name="actual-value" type="text" placeholder="Valor Atual: 0,00">
+                        <input class="hidden-input-text" name="aqcuisicion-value" type="text" placeholder="Valor de Aquisição: 0,00" maxlength="18">
+                    </span>
+                    <span class="input-text">
+                        <i></i>
+                        <input class="hidden-input-text" name="actual-value" type="text" placeholder="Valor Atual: 0,00" maxlength="18">
                     </span>
                 </section>
                 <section class="form-session">
@@ -120,5 +131,6 @@
         </section>
     </main>
     <footer></footer>
+    <script src="add.js"></script>
 </body>
 </html>

@@ -125,24 +125,22 @@ class MysqlDataBase
 		$query = "INSERT INTO `".$table."` (";
 
 		$keys = array_keys($data);
-		print_r($data);
 		$values = "";
+
 		for ($i = 0; $i < count($data); $i++){
 			echo "key: ".$keys[$i].", value: ".$data[$keys[$i]]."<br>";
 			
 			if ($i == count($data) - 1) {
 				$query .= "`".$keys[$i]."` ";
-				$values .= $data[$keys[$i]];
+				$values .= "'".$data[$keys[$i]]."'";
 			} else {
 				$query .= "`".$keys[$i]."`, ";
-				$values .= $data[$keys[$i]].", ";
-
+				$values .= "'".$data[$keys[$i]]."',";
 			}
-			
 		}
 
 		$query .= ") VALUES (".$values.")";
-		
+
 		$sql = $this->pdo->prepare($query);
 		if ($sql->execute()) {
 			return true;
@@ -257,7 +255,7 @@ class MysqlDataBase
 
 		$sql = $this->pdo->prepare($query);
 		$sql->execute();
-		$result = $sql->fetchAll();
+		$result = $sql->fetchAll(PDO::FETCH_ASSOC);
 		
 		return $result;
 	}

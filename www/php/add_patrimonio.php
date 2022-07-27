@@ -6,11 +6,16 @@
 *
 * Add new patrimonio in the data base
 */
+ob_start();
 require "../vendor/autoload.php";
 
 session_start();
 
 use Patrimonio\WWW\db\MysqlDataBase;
+
+$db = new MysqlDataBase("sistcon", "mysql", "root", "031957");
+$id_credor = filter_input(INPUT_POST, 'credor', FILTER_VALIDATE_INT);
+$cnpj_credor = $db->find("credor", "id = $id_credor", ["cpf_cnpj"]);
 
 // getting the values from the form
 // preparing the fields and data to be send to the data base
@@ -31,14 +36,20 @@ $data = ["pat_num"   => filter_input(INPUT_POST, "number", FILTER_SANITIZE_NUMBE
          "pat_unid"  => $_SESSION["unidade"],
          "pat_dtbai" => date("Y-m-d", intval("00-00-0000")),
          "pat_motiv" => "",
-         "pat_cod"   => ""
+         "pat_cod"   => "",
+         "pat_dttra" => date("Y-m-d", intval("00-00-0000")),
+         "pat_vlco"  => "0.00",
+         "pat_vldp"  => "0.00",
+         "pat_cnpj"  => $cnpj_credor[0],
+         "pat_mov"   => "",
+         "pat_vlat2" => floatval(filter_input(INPUT_POST, "actual_value", FILTER_SANITIZE_NUMBER_FLOAT))
         ];
 
 // executing the query
-$db = new MysqlDataBase("sistcon", "mysql", "root", "031957");
-
 if($db->registerDatas("patrimonio", $data)){
-    header("Location: ../cadastro/cadastro_patrimonio.php");
+    ob_clean();
+    //going back
+    header("Location: ../cadastro/cadastro_patrimonio.html");
 } else {
     echo "something went wrong";
 }

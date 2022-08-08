@@ -1,5 +1,5 @@
 <? 
-session_start();
+//session_start();
 require "../php/generatetable.php";
 $_SESSION["unidade"] = "02";
 
@@ -34,7 +34,7 @@ $_SESSION["unidade"] = "02";
                 <h1>Cadastro de Patrimonio</h1>
             </div>
             <div id="right">
-                <a class="button-menu" href="../cadastro/cadastro_patrimonio.html">Adicionar</a>
+                <a class="button-menu" href="../add/add.html">Adicionar</a>
                 <a class="button-menu" href="#">Listar</a>
                 <a class="button-menu-back" href="../index.html ">Voltar</a>
                 <!-- <button id="adicionar"  class="button-menu">Adicionar</button>

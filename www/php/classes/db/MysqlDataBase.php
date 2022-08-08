@@ -13,7 +13,7 @@
 
 namespace Patrimonio\WWW\db;
 use \PDO;
-
+session_start();
 class MysqlDataBase
 {
 	// os atributos da classe para estabelecer a conexão com o DB
@@ -150,11 +150,19 @@ class MysqlDataBase
 
 	}
 	//atualizar dados
-	public function updateDatas(string $table, $id, array $fields, array $datas)
+	public function updateDatas(string $table, $id, array $data)//array $fields, array $datas)
 	{
 		$query = "UPDATE `".$table."` SET ";
 
-		for ($i = 0; $i < count($fields); $i++) {
+		for($i = 0; $i < count($data); $i++){
+			$key = array_keys($data)[$i];
+			if($i == count($data) - 1){
+				$query .= "`". $key. "` = '" . $data[$key]. "'";
+			} else {
+				$query .= "`". $key. "` = '" . $data[$key]. "',";
+			}
+		}
+		/* for ($i = 0; $i < count($fields); $i++) {
 			if ($i == count($fields) - 1) {
 				$query .= "`".$fields[$i]."` = '".$datas[$i]."' ";
 
@@ -163,7 +171,7 @@ class MysqlDataBase
 
 			}
 		}
-
+ */
 		$query .= " WHERE `id` = ".$id;
 		$sql = $this->pdo->prepare($query);
 
@@ -192,7 +200,7 @@ class MysqlDataBase
 		}
 	}
 	/* Procurar por itens na tabela. Recebe o nome do campo, um array com os
-	 * campo ou só o * e alguma condição
+	 * campos ou só o * e alguma condição
 	 */
 	public function find($table, string $condition, $fields = '*')
 	{	
@@ -218,9 +226,8 @@ class MysqlDataBase
 		}
 
 		$sql = $this->pdo->prepare($query);
-		
 		if($sql->execute()) {
-			$result = $sql->fetch();
+			$result = $sql->fetch(PDO::FETCH_ASSOC);
 			return $result;
 		} else {
 			return false;

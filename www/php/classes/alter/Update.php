@@ -1,25 +1,50 @@
 <?
 /**
 * @author: Luiz Henrique da Mota Couto
-* @date:19/07/2022
-* Time: 14:57
-*
-* Add new patrimonio in the data base
+* @date:18/07/2022
+* Time: 16:03
 */
-ob_start();
-require "../vendor/autoload.php";
-
-session_start();
+namespace Patrimonio\WWW\alter;
+require "../../../vendor/autoload.php";
 
 use Patrimonio\WWW\db\MysqlDataBase;
 
-$db = new MysqlDataBase("sistcon", "mysql", "root", "031957");
-$id_credor = filter_input(INPUT_POST, 'credor', FILTER_VALIDATE_INT);
-$cnpj_credor = $db->find("credor", "id = $id_credor", ["cpf_cnpj"]);
+ob_start();
 
-// getting the values from the form
-// preparing the fields and data to be send to the data base
-$data = ["pat_num"   => filter_input(INPUT_POST, "number", FILTER_SANITIZE_NUMBER_INT),
+class Update extends MysqlDataBase {
+
+    //private $id_credor;
+    function __construct(
+        $db_name = "sistcon",
+        $host_name = "mysql",
+        $user_name = "root",
+        $password = "031957"
+    )
+    {
+        parent::__construct($db_name, $host_name, $user_name, $password);
+        $id_credor = filter_input(INPUT_POST, 'credor', FILTER_VALIDATE_INT);
+        $this->cnpj_credor = parent::find("credor", "id = $id_credor", ["cpf_cnpj"]);
+        
+        $this->alterData();
+    }
+    private function alterData()
+    {
+        $data = $this->getData();
+
+        $id = parent::find("patrimonio", "id = '".$_SESSION["id_alter"]."'", ["id"]);
+
+        if(parent::updateDatas("patrimonio", $id["id"], $data)){
+            ob_clean();
+            header("Location: ../../../table/table.php");
+        }else {
+            //header("Location: #?id=");
+        }
+    }
+
+    private function getData()
+    {
+        $data = [
+         "pat_num"   => filter_input(INPUT_POST, "number", FILTER_SANITIZE_NUMBER_INT),
          "pat_desc"  => filter_input(INPUT_POST, "description", FILTER_SANITIZE_SPECIAL_CHARS),
          "pat_tipo"  => filter_input(INPUT_POST, "type", FILTER_SANITIZE_NUMBER_INT),
          "pat_seto"  => filter_input(INPUT_POST, "sector", FILTER_SANITIZE_SPECIAL_CHARS),
@@ -40,16 +65,15 @@ $data = ["pat_num"   => filter_input(INPUT_POST, "number", FILTER_SANITIZE_NUMBE
          "pat_dttra" => date("Y-m-d", intval("00-00-0000")),
          "pat_vlco"  => "0.00",
          "pat_vldp"  => "0.00",
-         "pat_cnpj"  => $cnpj_credor[0],
+         "pat_cnpj"  => $this->cnpj_credor,
          "pat_mov"   => "",
          "pat_vlat2" => floatval(filter_input(INPUT_POST, "actual_value", FILTER_SANITIZE_NUMBER_FLOAT))
         ];
 
-// executing the query
-if($db->registerDatas("patrimonio", $data)){
-    ob_clean();
-    //going back
-    header("Location: ../add/add.html");
-} else {
-    echo "something went wrong";
+        return $data;
+    }
+}
+
+if(isset($_POST)){
+    new Update();
 }

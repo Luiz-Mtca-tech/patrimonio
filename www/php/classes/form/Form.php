@@ -46,6 +46,16 @@ class Form {
 		return $values_input;
 	}
 
+	public static function floatFormat(string $number)
+	{
+		for($i = strlen($number); $i >= 0; $i--){
+			if($i == strlen($number) - 2){
+				$number = substr($number, 0, $i) . "." . substr($number, $i);
+				echo $number."<br>";
+			}
+		}
+		return $number;
+	}
 
 }
 

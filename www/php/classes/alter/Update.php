@@ -8,12 +8,12 @@ namespace Patrimonio\WWW\alter;
 require "../../../vendor/autoload.php";
 
 use Patrimonio\WWW\db\MysqlDataBase;
-
+use Patrimonio\WWW\form\Form;
 ob_start();
+session_start();
 
 class Update extends MysqlDataBase {
 
-    //private $id_credor;
     function __construct(
         $db_name = "sistcon",
         $host_name = "mysql",
@@ -30,10 +30,10 @@ class Update extends MysqlDataBase {
     private function alterData()
     {
         $data = $this->getData();
-
-        $id = parent::find("patrimonio", "id = '".$_SESSION["id_alter"]."'", ["id"]);
-
-        if(parent::updateDatas("patrimonio", $id["id"], $data)){
+        echo "<br><br>: ".$_SESSION["id"]."<br><br>";
+        echo $data["pat_vlat"]." : ". $data["pat_vlin"];
+        
+        if(parent::updateDatas("patrimonio", $_SESSION["id"], $data)){
             ob_clean();
             header("Location: ../../../table/table.php");
         }else {
@@ -55,8 +55,8 @@ class Update extends MysqlDataBase {
          "pat_cara"  => filter_input(INPUT_POST, "feature", FILTER_SANITIZE_SPECIAL_CHARS),
          "pat_emp"   => filter_input(INPUT_POST, "empenho", FILTER_SANITIZE_SPECIAL_CHARS),
          "pat_nfs"   => filter_input(INPUT_POST, "nota-fiscal", FILTER_SANITIZE_NUMBER_INT),
-         "pat_vlin"  => floatval(filter_input(INPUT_POST, "aqcuisicion-value", FILTER_SANITIZE_NUMBER_INT)),
-         "pat_vlat"  => floatval(filter_input(INPUT_POST, "actual_value", FILTER_SANITIZE_NUMBER_FLOAT)),
+         "pat_vlin"  => number_format(filter_input(INPUT_POST, "pat-initial-value", FILTER_SANITIZE_NUMBER_FLOAT), 2, ".", ""),
+         "pat_vlat"  =>number_format(filter_input(INPUT_POST, "actual-value", FILTER_SANITIZE_NUMBER_FLOAT), 2, ".", ""),
          "pat_foto"  => filter_input(INPUT_POST, "picture", FILTER_DEFAULT),
          "pat_unid"  => $_SESSION["unidade"],
          "pat_dtbai" => date("Y-m-d", intval("00-00-0000")),

@@ -1,14 +1,14 @@
 <?
     require "../../vendor/autoload.php";
-    
+
     use Patrimonio\WWW\db\MysqlDataBase;
     use Patrimonio\WWW\alter\FillFormAlter;
-
-    $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
-    $_SESSION["id_alter"] = $id;
+    session_start();
+    $_SESSION["id"] = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
+    
     $db = new MysqlDataBase("sistcon", "mysql", "root", "031957");
     $fill = new FillFormAlter();
-    $data = $db->find("patrimonio", "id = $id");
+    $data = $db->find("patrimonio", "id = ".$_SESSION['id']);
 
 
 ?>
@@ -128,11 +128,11 @@
                     </span>
                     <span class="input-text">
                         <i></i>
-                        <input class="hidden-input-text" name="aqcuisicion-value" type="text" value="<?echo $data["pat_vlin"]?>" placeholder="Valor de Aquisição: 0,00" maxlength="18">
+                        <input class="hidden-input-text" name="pat-initial-value" type="number" value="<?echo substr($data["pat_vlin"], 0, strpos($data["pat_vlin"], "."))?>" placeholder="Valor de Aquisição: 0,00" maxlength="18">
                     </span>
                     <span class="input-text">
                         <i></i>
-                        <input class="hidden-input-text" name="actual-value" type="text" value="<?echo $data["pat_vlat"]?>" placeholder="Valor Atual: 0,00" maxlength="18">
+                        <input class="hidden-input-text" name="actual-value" type="number" value="<?echo substr($data["pat_vlat"], 0, strpos($data["pat_vlat"], "."))?>" placeholder="Valor Atual: 0,00" maxlength="18">
                     </span>
                 </section>
                 <section class="form-session">

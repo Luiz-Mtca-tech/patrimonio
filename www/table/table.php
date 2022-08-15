@@ -1,5 +1,5 @@
 <? 
-//session_start();
+session_start();
 require "../php/generatetable.php";
 $_SESSION["unidade"] = "02";
 

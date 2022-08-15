@@ -13,7 +13,7 @@
 
 namespace Patrimonio\WWW\db;
 use \PDO;
-session_start();
+
 class MysqlDataBase
 {
 	// os atributos da classe para estabelecer a conexão com o DB
@@ -162,17 +162,9 @@ class MysqlDataBase
 				$query .= "`". $key. "` = '" . $data[$key]. "',";
 			}
 		}
-		/* for ($i = 0; $i < count($fields); $i++) {
-			if ($i == count($fields) - 1) {
-				$query .= "`".$fields[$i]."` = '".$datas[$i]."' ";
-
-			}else{
-				$query .= "`".$fields[$i]."` = '".$datas[$i]."', ";
-
-			}
-		}
- */
+	
 		$query .= " WHERE `id` = ".$id;
+		
 		$sql = $this->pdo->prepare($query);
 
 		if ($sql->execute()) {

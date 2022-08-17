@@ -14,7 +14,13 @@
     outline: none;
 }
 .hidden-input-text {
-    background-color: #E0E0E0;
+    background-color: #e0e0e0;
     border: none;
     outline: none;
+}
+
+.hidden-p {
+    font-family: Mukta, Kanit, Arial;
+    margin: 5px;
+    color: #40403E;
 }

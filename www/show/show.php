@@ -11,6 +11,7 @@ $data = $db->find("patrimonio", "id = $id");
 
 $setor = $db->find("setor", "set_cod = ".$data["pat_seto"], ["set_des"]);
 $local = $db->find("local", "loc_cod = ".$data["pat_loca"], ["loc_des"]);
+$credor = $db->find("credor", "id = ".$data["pat_cred"], ["razao_social"]);
 //$fill = new FillFormAlter();
 ?>
 <!-- 
@@ -146,7 +147,7 @@ $local = $db->find("local", "loc_cod = ".$data["pat_loca"], ["loc_des"]);
                 <!--Credor-->
                 <div>
                     <div class="data">
-                        <p class="hidden-p"><strong>Credor: </strong><? echo $data["pat_cred"]?> </p>
+                        <p class="hidden-p"><strong>Credor: </strong><? echo $credor["razao_social"]?> </p>
                     </div>
                 </div>
                 

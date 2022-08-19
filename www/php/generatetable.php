@@ -55,7 +55,7 @@ function generateTable($data){
             <td><?echo $item["pat_desc"] ?></td>
             <td><a class="action-alt" href="../add/alter/alter.php?id=<? echo $item['id']?>"  title="Alt"><i class="fa-solid fa-file-pen table-icon"></i></a></td>
             <td><a class="" href="../show/show.php?id=<? echo $item['id']?>" title="Ficha"><i class="fa-solid fa-file-lines table-icon"></i></a></td>
-            <td><a class="" href="#" title="Baixa"><i class="fa-solid fa-arrow-down-long table-icon"></i></a></td>
+            <td><a class="" href="../delete/delete.php?id=<?echo $item['id']?>" title="Baixa"><i class="fa-solid fa-arrow-down-long table-icon"></i></a></td>
             <td><a class="" href="#" title="Tranferência"><i class="fa-solid fa-arrow-right-arrow-left table-icon"></i></a></td>
         </tr>
     <?

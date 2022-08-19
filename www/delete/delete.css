@@ -1,0 +1,49 @@
+/**
+ *  (c) redxam llc and affiliates. Confidential and proprietary.
+ *
+ *  @oncall dev
+ *  @format
+ */
+
+ @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Mukta:wght@200;400&family=Overpass:wght@300;400;600;700&family=Patua+One&family=Roboto+Condensed:wght@300&family=Secular+One&family=Source+Sans+Pro:wght@200;300;400&display=swap');
+
+ body {
+    margin: 0px;
+    /*background-color: #C1C2D9;*/
+    background-image: url('../images/background1.jpg');
+}
+main {
+    width: 70%;
+    margin: 15px auto;
+    padding: 10px;
+    background-color: #F2F2F2;
+    border-radius: 10px;
+    opacity: 0.91;
+}
+
+textarea {
+    resize: none;
+}
+
+@media (min-width: 568px){
+    section.form-session {
+        padding: 5px;
+        width: fit-content;
+        text-align: center;
+        margin: auto;
+    }
+}
+
+@media (max-width: 567px){
+    main{
+        width: 100%;
+        margin: 0px;
+    }
+
+    section.form-session {
+        padding: 5px;
+       /*  flex-direction: column; */
+        text-align: center;
+
+    }
+}

@@ -9,9 +9,11 @@ namespace Patrimonio\WWW\patrimonio;
 
 require "../../vendor/autoload.php";
 
+use Patrimonio\WWW\alter\Update;
 use Patrimonio\WWW\db\MysqlDataBase;
 
 class Patrimonio extends MysqlDataBase {
+    public Update $update;
     function __construct($db_name, $host_name, $user, $password)
     {
         parent::__construct($db_name, $host_name, $user, $password);
@@ -29,4 +31,5 @@ class Patrimonio extends MysqlDataBase {
     public function edit(){
 
     }
+
 }

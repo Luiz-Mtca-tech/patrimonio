@@ -56,7 +56,13 @@ class Form {
 		}
 		return $number;
 	}
-
+	public static function getForm(){
+		$res = [];
+		for($i = 0; $i <= count($_POST) - 1; $i++){
+			$res[array_keys($_POST)[$i]] = filter_input(INPUT_POST, array_keys($_POST)[$i], FILTER_DEFAULT);
+		}
+		return $res;
+	}
 }
 
 

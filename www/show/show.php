@@ -160,7 +160,7 @@ $credor = $db->find("credor", "id = ".$data["pat_cred"], ["razao_social"]);
             
             <section class="data-session">
                 <div class="data">
-                    <p class="hidden-p"><strong>N. de Empenho: </strong>R$<? echo number_format($data["pat_emp"], 2, ".", ",")?></p>
+                    <p class="hidden-p"><strong>N. de Empenho: </strong><? echo $data["pat_emp"]?></p>
                 </div>
                 <div class="data">
                     <p class="hidden-p"><strong>Nota Fiscal: </strong><? echo $data["pat_nfs"]?></p>

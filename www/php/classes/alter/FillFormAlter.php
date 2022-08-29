@@ -25,7 +25,6 @@ class FillFormAlter extends MysqlDataBase{
     
     public function getSelect(
         string $table,//$table which table to search for data.
-        //$comp any number or data to make a comparation to mark as selected.
 
         int $comp,//$comp any number or data to make a comparation to mark as selected.
 
@@ -38,7 +37,7 @@ class FillFormAlter extends MysqlDataBase{
 
             ?>
                 <option value="<?echo $item[$field[0]]?>" <? echo $item["id"] == $comp ? 'selected': ''?>>
-                 <? echo $item[$field[1]]?>
+                    <? echo $item[$field[1]]?>
                 </option>
             <?
         }

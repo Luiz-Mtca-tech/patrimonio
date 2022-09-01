@@ -29,13 +29,18 @@ class Patrimonio extends MysqlDataBase {
 
         }
     }
-    public function delete()
+    public function delete($id)
     {
-
+        
     }
 
-    public function edit(){
+    public function edit($id, array $data)
+    {
+        if(parent::updateDatas("patrimonio" , $id, $data)){
+            header("Location: ../table/table.php");
+        } else {
 
+        }
     }
     public static function getData($cnpj_credor)
     {

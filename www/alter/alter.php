@@ -1,5 +1,5 @@
 <?
-    require "../../vendor/autoload.php";
+    require "../vendor/autoload.php";
 
     use Patrimonio\WWW\db\MysqlDataBase;
     use Patrimonio\WWW\alter\FillFormAlter;
@@ -18,7 +18,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../add.css">
+    <link rel="stylesheet" href="../add/add.css">
     <link rel="stylesheet" href="../../css/buttons.css">
     <link rel="stylesheet" href="../../css/header.css">
     <link rel="stylesheet" href="../../css/inputs.css">
@@ -51,7 +51,7 @@
             <article id="title-box">
                 <h1 class="h1-search">Inclusão de Patriminio</h1>
             </article>
-            <form action="../../php/classes/alter/Update.php" method="post">
+            <form action="../php/update.php" method="post">
 
                 <section class="form-session">
                     <span class="input-text">
@@ -128,7 +128,7 @@
                     </span>
                     <span class="input-text">
                         <i></i>
-                        <input class="hidden-input-text" name="pat-initial-value" type="number" value="<?echo substr($data["pat_vlin"], 0, strpos($data["pat_vlin"], "."))?>" placeholder="Valor de Aquisição: 0,00" maxlength="18">
+                        <input class="hidden-input-text" name="aqcuisicion-value" type="number" value="<?echo substr($data["pat_vlin"], 0, strpos($data["pat_vlin"], "."))?>" placeholder="Valor de Aquisição: 0,00" maxlength="18">
                     </span>
                     <span class="input-text">
                         <i></i>

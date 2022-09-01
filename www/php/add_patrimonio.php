@@ -11,45 +11,17 @@ require "../vendor/autoload.php";
 
 session_start();
 
-use Patrimonio\WWW\db\MysqlDataBase;
+use Patrimonio\WWW\patrimonio\Patrimonio;
 
-$db = new MysqlDataBase("sistcon", "mysql", "root", "031957");
+//getting credor id form the form
 $id_credor = filter_input(INPUT_POST, 'credor', FILTER_VALIDATE_INT);
-$cnpj_credor = $db->find("credor", "id = $id_credor", ["cpf_cnpj"]);
 
-// getting the values from the form
-// preparing the fields and data to be send to the data base
-$data = ["pat_num"   => filter_input(INPUT_POST, "number", FILTER_SANITIZE_NUMBER_INT),
-         "pat_desc"  => filter_input(INPUT_POST, "description", FILTER_SANITIZE_SPECIAL_CHARS),
-         "pat_tipo"  => filter_input(INPUT_POST, "type", FILTER_SANITIZE_NUMBER_INT),
-         "pat_seto"  => filter_input(INPUT_POST, "sector", FILTER_SANITIZE_SPECIAL_CHARS),
-         "pat_loca"  => filter_input(INPUT_POST, "local", FILTER_SANITIZE_SPECIAL_CHARS),
-         "pat_situ"  => filter_input(INPUT_POST, "situacion", FILTER_SANITIZE_SPECIAL_CHARS),
-         "pat_dtaq"  => filter_input(INPUT_POST, "acquisition", FILTER_DEFAULT),
-         "pat_cred"  => filter_input(INPUT_POST, "credor", FILTER_SANITIZE_SPECIAL_CHARS),
-         "pat_cara"  => filter_input(INPUT_POST, "feature", FILTER_SANITIZE_SPECIAL_CHARS),
-         "pat_emp"   => filter_input(INPUT_POST, "empenho", FILTER_SANITIZE_SPECIAL_CHARS),
-         "pat_nfs"   => filter_input(INPUT_POST, "nota-fiscal", FILTER_SANITIZE_NUMBER_INT),
-         "pat_vlin"  => filter_input(INPUT_POST, "aqcuisicion-value", FILTER_SANITIZE_NUMBER_INT),
-         "pat_vlat"  => filter_input(INPUT_POST, "actual_value", FILTER_SANITIZE_NUMBER_FLOAT),
-         "pat_foto"  => filter_input(INPUT_POST, "picture", FILTER_DEFAULT),
-         "pat_unid"  => $_SESSION["unidade"],
-         "pat_dtbai" => date("Y-m-d", intval("00-00-0000")),
-         "pat_motiv" => "",
-         "pat_cod"   => "",
-         "pat_dttra" => date("Y-m-d", intval("00-00-0000")),
-         "pat_vlco"  => "0.00",
-         "pat_vldp"  => "0.00",
-         "pat_cnpj"  => $cnpj_credor[0],
-         "pat_mov"   => "",
-         "pat_vlat2" => floatval(filter_input(INPUT_POST, "actual_value", FILTER_SANITIZE_NUMBER_FLOAT))
-        ];
+//creating connection with data base
+$patrimonio = new Patrimonio("sistcon", "mysql", "root", "031957");
+//finding credor
+$cnpj_credor = $patrimonio->find("credor", "id = $id_credor", ["cpf_cnpj"]);
+//getting all of the data from the form
+$data = $patrimonio->getData($cnpj_credor);
 
-// executing the query
-if($db->registerDatas("patrimonio", $data)){
-    ob_clean();
-    //going back
-    header("Location: ../add/add.html");
-} else {
-    echo "something went wrong";
-}
+//adding data to DB
+$patrimonio->add($data);

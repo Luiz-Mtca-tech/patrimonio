@@ -50,7 +50,7 @@ $_SESSION["unidade"] = "02";
 <!--                 <label for="search-input">Num. Patrimonio</label>
  -->                <span id="search-input" class="input-text">
                     <i class="fa-solid fa-magnifying-glass icon"></i>
-                    <input id="into-search-input" class="hidden-input-text" type="text" placeholder="Num. Patrimonio">
+                    <input id="into-search-input" class="hidden-input-text" type="number" placeholder="Num. Patrimonio" maxlength="6">
                 </span>
                 <span id="submit-area">
                     <input id="send-search" class="button1" type="submit" value="Enviar">

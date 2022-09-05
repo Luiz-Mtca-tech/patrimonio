@@ -34,7 +34,7 @@ function generateTable($data){
     ?>
     <table>
         <tr class="table-header">
-            <th>Id</th>
+            <th>Número</th>
             <th>Foto</th>
             <th>Setor</th>
             <th>Código</th>
@@ -45,7 +45,7 @@ function generateTable($data){
     foreach ($data as $item){
     ?>
         <tr class="table-row">
-            <td><?echo $item["id"] ?></td>
+            <td><?echo $item["pat_num"] ?></td>
             <td>
                 <a href="images/foto_usu3.jpg" target="_blank">Imagem</a>
             </td>

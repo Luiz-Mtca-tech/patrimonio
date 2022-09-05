@@ -10,7 +10,6 @@ use Patrimonio\WWW\alter\FillFormAlter;
 session_start();
 $id = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT);
 $fill = new FillFormAlter();
-echo "id: ".$id;
 ?>
 
 <!DOCTYPE html>

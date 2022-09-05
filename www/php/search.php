@@ -17,15 +17,16 @@ $db = new MysqlDataBase("sistcon", "mysql", "root", "031957");
 $filter = filter_input(INPUT_POST, "number", FILTER_SANITIZE_NUMBER_INT);
 
 if ($filter == ""){
-    $data = $db->findAll("patrimonio");
-
+    if(isset($_SESSION["local"])){
+        $data = $db->findAll("patrimonio", "pat_loca = ".$_SESSION["local"]);
+    }
 } else {
-    $data = $db->findAll("patrimonio", "pat_num LIKE '".$filter."%'");
+    $data = $db->findAll("patrimonio", "pat_num LIKE '%".$filter."%'");
 }
 ?>
 <table>
 <tr class="table-header">
-    <th>Id</th>
+    <th>Número</th>
     <th>Foto</th>
     <th>Setor</th>
     <th>Código</th>
@@ -36,7 +37,7 @@ if ($filter == ""){
 foreach ($data as $item){
 ?>
 <tr class="table-row">
-    <td><?echo $item["id"] ?></td>
+    <td><?echo $item["pat_num"] ?></td>
     <td>
         <a href="images/foto_usu3.jpg" target="_blank">Imagem</a>
     </td>

@@ -1,7 +1,13 @@
-<? 
+<?
+
+use Patrimonio\WWW\alter\FillFormAlter;
+
 session_start();
 require "../php/generatetable.php";
+require "../php/classes/alter/FillFormAlter.php";
+
 $_SESSION["unidade"] = "02";
+$fillform = new FillFormAlter();
 
 ?>
 <!DOCTYPE html>
@@ -48,12 +54,23 @@ $_SESSION["unidade"] = "02";
             <h1 class="h1-search">Pesquisa</h1>
             <article id="inputs-search-area">
 <!--                 <label for="search-input">Num. Patrimonio</label>
- -->                <span id="search-input" class="input-text">
-                    <i class="fa-solid fa-magnifying-glass icon"></i>
-                    <input id="into-search-input" class="hidden-input-text" type="number" placeholder="Num. Patrimonio" maxlength="6">
+ -->            <span class="">
+                    <span id="search-input" class="input-text">
+                        <i class="fa-solid fa-magnifying-glass icon"></i>
+                        <input id="into-search-input" class="hidden-input-text" type="number" placeholder="Num. Patrimonio" maxlength="6">
+                    </span>
+                    <span id="submit-area">
+                        <input id="send-search" class="button1" type="submit" value="Enviar">
+                    </span>
                 </span>
-                <span id="submit-area">
-                    <input id="send-search" class="button1" type="submit" value="Enviar">
+                <span class=""></span>
+                
+                <span class="" id="local-search">
+                    <label for="">Local:</label>
+                    <select class="input-text" id="select-local">
+                        <option value="0">nenhum</option>
+                        <? $fillform->getSelect("local", $_SESSION["local"], ["id", "loc_des"])?>
+                    </select>
                 </span>
                 
             </article>

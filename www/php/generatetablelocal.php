@@ -16,6 +16,7 @@ if($local == "0"){
     $data = $db->findAll("patrimonio");
 } else {
     $data = $db->findAll("patrimonio", "pat_loca = $local");
+    $_SESSION["local"] = $local;
 }
 ?>
 <table>

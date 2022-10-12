@@ -10,7 +10,10 @@ require "../vendor/autoload.php";
 use Patrimonio\WWW\db\MysqlDataBase;
 
 session_start();
+if (!isset($_SESSION['login'])){
+    header("Location: ../index.html");
 
+}
 $db = new MysqlDataBase("sistcon", "mysql", "root", "031957");
 $id = filter_input(INPUT_POST, "patrimonio", FILTER_VALIDATE_INT);
 $data = $db->find("patrimonio" , "id = ". $id);

@@ -1,18 +1,22 @@
 <?
-require "../vendor/autoload.php";
+    require "../vendor/autoload.php";
 
-use Patrimonio\WWW\db\MysqlDataBase;
-//use Patrimonio\WWW\alter\FillFormAlter;
+    use Patrimonio\WWW\db\MysqlDataBase;
+    //use Patrimonio\WWW\alter\FillFormAlter;
+    session_start();
+    if (!isset($_SESSION['login'])){
+        header("Location: ../index.html");
 
-$id = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT);
+    }
+    $id = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT);
 
-$db = new MysqlDataBase("sistcon", "mysql", "root", "031957");
-$data = $db->find("patrimonio", "id = $id");
+    $db = new MysqlDataBase("sistcon", "mysql", "root", "031957");
+    $data = $db->find("patrimonio", "id = $id");
 
-$setor = $db->find("setor", "set_cod = ".$data["pat_seto"], ["set_des"]);
-$local = $db->find("local", "loc_cod = ".$data["pat_loca"], ["loc_des"]);
-$credor = $db->find("credor", "id = ".$data["pat_cred"], ["razao_social"]);
-//$fill = new FillFormAlter();
+    $setor = $db->find("setor", "set_cod = ".$data["pat_seto"], ["set_des"]);
+    $local = $db->find("local", "loc_cod = ".$data["pat_loca"], ["loc_des"]);
+    $credor = $db->find("credor", "id = ".$data["pat_cred"], ["razao_social"]);
+    //$fill = new FillFormAlter();
 ?>
 <!-- 
  *  (c) redxam llc and affiliates. Confidential and proprietary.
@@ -55,7 +59,7 @@ $credor = $db->find("credor", "id = ".$data["pat_cred"], ["razao_social"]);
     <main>
         <section>
             <article id="title-box">
-                <h1 class="h1-search">Patrimonio nº: <? echo "legal"?></h1>
+                <h1 class="h1">Patrimonio nº: <? echo $data["pat_num"]?></h1>
             </article>
             <hr>
             <!--here will be the data-->

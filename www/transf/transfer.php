@@ -1,13 +1,17 @@
 <?
-require "../vendor/autoload.php";
+    require "../vendor/autoload.php";
 
-use Patrimonio\WWW\db\MysqlDataBase;
-use Patrimonio\WWW\alter\FillFormAlter;
+    use Patrimonio\WWW\db\MysqlDataBase;
+    use Patrimonio\WWW\alter\FillFormAlter;
+    session_start();
+    if (!isset($_SESSION['login'])){
+        header("Location: ../index.html");
+    }
 
-$db = new MysqlDataBase("sistcon", "mysql", "root", "031957");
-$form = new FillFormAlter();
-$id = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT);
-$item = $db->find("patrimonio", "id = $id");
+    $db = new MysqlDataBase("sistcon", "mysql", "root", "031957");
+    $form = new FillFormAlter();
+    $id = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT);
+    $item = $db->find("patrimonio", "id = $id");
 
 ?>
 <!DOCTYPE html>
@@ -44,7 +48,7 @@ $item = $db->find("patrimonio", "id = $id");
 </header>
 <main>
     <section>
-        <h1 class="h1-search">Tranferencia de Patrimonio</h1>
+        <h1 class="h1">Tranferencia de Patrimonio</h1>
         <article>
             <p class="hidden-p"></p>
            <p class="hidden-p">Patrimonio: <?echo $item["pat_desc"]?> - Numero: <?echo $item["pat_num"]?></p>

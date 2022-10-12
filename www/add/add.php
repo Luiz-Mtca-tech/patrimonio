@@ -1,3 +1,9 @@
+<?
+    session_start();
+    if (!isset($_SESSION['login'])){
+        header("Location: ../index.html");
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -35,7 +41,7 @@
     <main>
         <section>
             <article id="title-box">
-                <h1 class="h1-search">Inclusão de Patriminio</h1>
+                <h1 class="h1">Inclusão de Patriminio</h1>
             </article>
             <form action="../php/add_patrimonio.php" method="post">
 

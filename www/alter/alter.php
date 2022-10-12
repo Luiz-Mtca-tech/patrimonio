@@ -4,6 +4,10 @@
     use Patrimonio\WWW\db\MysqlDataBase;
     use Patrimonio\WWW\alter\FillFormAlter;
     session_start();
+    if (!isset($_SESSION['login'])){
+        header("Location: ../index.html");
+    
+    }
     $_SESSION["id"] = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
     
     $db = new MysqlDataBase("sistcon", "mysql", "root", "031957");

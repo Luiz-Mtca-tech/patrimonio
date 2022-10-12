@@ -35,4 +35,9 @@ $(document).ready(function(){
         })
     })
 
+    $("#hide-search").click(function(){
+        alert("clicou")
+        document.querySelector("#inputs-search-area").classList.add('hidden')
+    })
+
 })

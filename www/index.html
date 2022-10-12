@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="periodo.css">
-    <link rel="stylesheet" href="../css/cadastro.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/buttons.css">
     <link rel="stylesheet" href="../css/inputs.css">
@@ -37,18 +36,21 @@
     <main>
         <section>
             <article>
-                <h1 class="h1-search">Escolha um Local</h1>
+                <h1 class="h1">Login</h1>
             </article>
         </section>
-        <form id="period" method="post" action="table/table.php">
-            <select class="input-text sz-select sp" id="local" name="location" style="display: block;">
-                <!-- <option value="0">Nenhum</option>
-                <option value="1">01-IPA</option> -->
-            </select>
-
-            <span class="submit sp">
-                <input class="button1" type="submit" value="Enviar">
-            </span>
+        <form class="form-select" action="php/login.php" method="post">
+            <div class="">
+                <span style="margin: 0px 20px 0px 0px"><label for="">Cpf:</label></span>
+                <span><input class="input-text" name="cpf" type="text"></span>   
+            </div>
+            <div class="">
+                <span><label for="">Senha:</label></span>
+                <span> <input class="input-text" name="password" type="password"></span>
+            </div>
+            <div class="submit-login">
+                <input class="button1" type="submit">
+            </div>
         </form>
     </main>
     <footer></footer>

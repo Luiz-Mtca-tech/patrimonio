@@ -58,7 +58,7 @@ class Patrimonio extends MysqlDataBase {
          "pat_vlin"  => filter_input(INPUT_POST, "aqcuisicion-value", FILTER_SANITIZE_NUMBER_INT),
          "pat_vlat"  => filter_input(INPUT_POST, "actual-value", FILTER_SANITIZE_NUMBER_INT),
          "pat_foto"  => filter_input(INPUT_POST, "picture", FILTER_DEFAULT),
-         "pat_unid"  => $_SESSION["unidade"],
+         "pat_unid"  => $_SESSION["codigo-unidade"],
          "pat_dtbai" => date("Y-m-d", intval("00-00-0000")),
          "pat_motiv" => "",
          "pat_cod"   => "",

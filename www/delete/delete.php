@@ -1,15 +1,22 @@
-<?/* 
- *  (c) redxam llc and affiliates. Confidential and proprietary.
- *
- *  @oncall dev+Author
- *  @format
-*/
-require "../vendor/autoload.php";
+<?
+  /* 
+  *  (c) redxam llc and affiliates. Confidential and proprietary.
+  *
+  *  @oncall dev+Author
+  *  @format
+  */
+  require "../vendor/autoload.php";
 
-use Patrimonio\WWW\alter\FillFormAlter;
-session_start();
-$id = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT);
-$fill = new FillFormAlter();
+  use Patrimonio\WWW\alter\FillFormAlter;
+
+  session_start();
+  //if there's no login
+  if (!isset($_SESSION['login'])){
+    header("Location: ../index.html");
+
+  }
+  $id = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT);
+  $fill = new FillFormAlter();
 ?>
 
 <!DOCTYPE html>
